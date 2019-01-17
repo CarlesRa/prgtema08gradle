@@ -1,5 +1,5 @@
-package exercici06;
-import libreria.Lib;
+package com.carlesramos.bicicletas.exercici06;
+import com.carlesramos.bicicletas.libreria.Lib;
 import java.util.Scanner;
 public class Principal06 {
     static int contadorBicicleta;//contenedor objectes
@@ -93,6 +93,7 @@ public class Principal06 {
                 condicion=false;
             }
         }while(!condicion);
+
     }
 
 }

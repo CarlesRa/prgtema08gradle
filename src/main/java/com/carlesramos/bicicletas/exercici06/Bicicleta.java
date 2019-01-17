@@ -1,4 +1,4 @@
-package exercici06;
+package com.carlesramos.bicicletas.exercici06;
 
 public class Bicicleta {
     private int referencia;

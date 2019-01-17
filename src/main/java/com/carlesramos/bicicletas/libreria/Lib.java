@@ -1,4 +1,4 @@
-package libreria;
+package com.carlesramos.bicicletas.libreria;
 import java.util.*;
 public class Lib{
 
