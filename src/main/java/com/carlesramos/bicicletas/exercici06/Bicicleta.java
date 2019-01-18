@@ -9,7 +9,7 @@ public class Bicicleta {
     private boolean teMotor;
     private String dataFabricacio;
     private float preu;
-    protected int nombreExistencies;
+  //  protected int nombreExistencies;
 
     public Bicicleta(int referencia, String marca,  Model model, float pes, float grandariaRodes
             , boolean teMotor, String dataFabricacio, float preu, int nombreExistencies) {
@@ -21,7 +21,7 @@ public class Bicicleta {
         this.teMotor = teMotor;
         this.dataFabricacio = dataFabricacio;
         this.preu = preu;
-        this.nombreExistencies = nombreExistencies;
+      //  this.nombreExistencies = nombreExistencies;
     }
 
     public Bicicleta() {
@@ -33,7 +33,7 @@ public class Bicicleta {
         teMotor = false;
         dataFabricacio ="";
         preu = 0f;
-        nombreExistencies = 0;
+      //  nombreExistencies = 0;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Bicicleta {
                 ", Motor=" + teMotor +
                 ", fecha fabricació='" + dataFabricacio + '\'' +
                 ", Precio=" + preu +
-                ", Existencias=" + nombreExistencies +
+         //       ", Existencias=" + nombreExistencies +
                 '}';
     }
 
@@ -116,11 +116,11 @@ public class Bicicleta {
         this.preu = preu;
     }
 
-    public int getNombreExistencies() {
+   /* public int getNombreExistencies() {
         return nombreExistencies;
     }
 
     public void setNombreExistencies(int nombreExistencies) {
         this.nombreExistencies = nombreExistencies;
-    }
+    }*/
 }

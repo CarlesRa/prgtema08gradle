@@ -45,25 +45,25 @@ public class Metodes {
                 case 1:
                     biciAux.setModel(Bicicleta.Model.MONTAÑA);
                     contadorMontaña++;
-                    biciAux.setNombreExistencies(contadorMontaña);
+                   // biciAux.setNombreExistencies(contadorMontaña);
 
                     break;
                 case 2:
                     biciAux.setModel(Bicicleta.Model.CARRETERA);
                     contadorCarretera++;
-                    biciAux.setNombreExistencies(contadorCarretera);
+                    //biciAux.setNombreExistencies(contadorCarretera);
 
                     break;
                 case 3:
                     biciAux.setModel(Bicicleta.Model.HIBRIDA);
                     contadorHibrida++;
-                    biciAux.setNombreExistencies(contadorHibrida);
+                   // biciAux.setNombreExistencies(contadorHibrida);
 
                     break;
                 case 4:
                     biciAux.setModel(Bicicleta.Model.INFANTIL);
                     contadorInfantil++;
-                    biciAux.setNombreExistencies(contadorInfantil);
+                   // biciAux.setNombreExistencies(contadorInfantil);
 
                     break;
                 default:
@@ -124,21 +124,39 @@ public class Metodes {
 
     public void venderBicicleta(){
         int referencia;
+        int contadorAux=0;
         System.out.print("Que referencia?: ");
-        ref = Principal06.lec.nextInt();
+        referencia= Principal06.lec.nextInt();
         Principal06.lec.nextLine();
         for(int i=0; i<puntero; i++){
-            if(Principal06.contenedorBici[i].getReferencia()==ref&&
-                    Principal06.contenedorBici[i].getNombreExistencies()>0){
+            if(Principal06.contenedorBici[i].getReferencia()==referencia){
+                contadorAux++;
+                if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.CARRETERA) {
+                    contadorCarretera--;
+                }
+                if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.MONTAÑA) {
+                    contadorMontaña--;
+                }
+                if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.HIBRIDA) {
+                    contadorHibrida--;
+                }
+                if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.INFANTIL) {
+                    contadorInfantil--;
+                }
                 System.out.println("Bicicleta vendida con exito....");
                 System.out.print("Pulse intro para continuar: ");
                 Principal06.lec.nextLine();
-                for(int x=1; x<puntero; x++){
+                for(int x=i; x<puntero; x++){
                     Principal06.contenedorBici[x] = Principal06.contenedorBici[x+1];
                 }
                 puntero--;
 
             }
+        }
+        if(contadorAux==0){
+            System.out.println("Ninguna bicicleta con esa referencia");
+            System.out.print("Pulse intro para continuar: ");
+            Principal06.lec.nextLine();
         }
     }
 
@@ -147,24 +165,50 @@ public class Metodes {
         System.out.print("Introduzca la referencia: ");
         ref=Principal06.lec.nextInt();
         Principal06.lec.nextLine();
-        for(int i=0; i<puntero; i++)
+        for(int i=0; i<puntero; i++) {
             if (Principal06.contenedorBici[i].getReferencia() == ref) {
-                System.out.println(Principal06.contenedorBici[i].toString());
+                if (biciAux.getModel() == Bicicleta.Model.CARRETERA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorCarretera);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.MONTAÑA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorMontaña);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.HIBRIDA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorHibrida);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.INFANTIL) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorInfantil);
+                }
+
             }
+        }
         if(contador==0){
             System.out.println("\u001B[31mNo hay existencias con esa referencia...\u001B[0m");
         }
     }
 
-    public void consultarPorMarca(){
-        int contador=0;
+    public void consultarPorMarca() {
+        int contador = 0;
         String marca;
         System.out.print("Introduzca la marca: ");
-        marca=Principal06.lec.nextLine();
-        for(int i=0; i<puntero; i++)
+        marca = Principal06.lec.nextLine();
+        for (int i = 0; i < puntero; i++) {
             if (Principal06.contenedorBici[i].getMarca().equalsIgnoreCase(marca)) {
-                System.out.println(Principal06.contenedorBici[i].toString());
+                if (biciAux.getModel() == Bicicleta.Model.CARRETERA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorCarretera);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.MONTAÑA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorMontaña);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.HIBRIDA) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorHibrida);
+                }
+                if (biciAux.getModel() == Bicicleta.Model.INFANTIL) {
+                    System.out.println(Principal06.contenedorBici[i].toString() + " Existencias=" + contadorInfantil);
+                }
+                contador++;
             }
+        }
         if(contador==0){
             System.out.println("\u001B[31mNo hay existencias con esta marca...\u001B[0m");
         }
@@ -185,7 +229,7 @@ public class Metodes {
                 case 1:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.MONTAÑA) {
-                            System.out.println(Principal06.contenedorBici[i].toString());
+                            System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorMontaña);
                             contador++;
                         }
 
@@ -193,21 +237,21 @@ public class Metodes {
                 case 2:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.CARRETERA) {
-                            System.out.println(Principal06.contenedorBici[i].toString());
+                            System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorCarretera);
                             contador++;
                         }
                     break;
                 case 3:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.HIBRIDA) {
-                            System.out.println(Principal06.contenedorBici[i].toString());
+                            System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorHibrida);
                             contador++;
                         }
                     break;
                 case 4:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.INFANTIL) {
-                            System.out.println(Principal06.contenedorBici[i].toString());
+                            System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorInfantil);
                             contador++;
                         }
                     break;
@@ -223,7 +267,18 @@ public class Metodes {
 
     public void mostrarStock(){
         for(int i=0; i<puntero; i++){
-            System.out.println(Principal06.contenedorBici[i].toString());
+            if(biciAux.getModel()==Bicicleta.Model.CARRETERA) {
+                System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorCarretera);
+            }
+            if(biciAux.getModel()==Bicicleta.Model.MONTAÑA) {
+                System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorMontaña);
+            }
+            if(biciAux.getModel()==Bicicleta.Model.HIBRIDA) {
+                System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorHibrida);
+            }
+            if(biciAux.getModel()==Bicicleta.Model.INFANTIL) {
+                System.out.println(Principal06.contenedorBici[i].toString()+" Existencias="+contadorInfantil);
+            }
         }
     }
 
@@ -248,23 +303,23 @@ public class Metodes {
                 case 1:
                     biciAux.setModel(Bicicleta.Model.MONTAÑA);
                     contadorMontaña++;
-                    biciAux.setNombreExistencies(contadorMontaña);
+                    //biciAux.setNombreExistencies(contadorMontaña);
 
                     break;
                 case 2:
                     biciAux.setModel((Bicicleta.Model.CARRETERA));
                     contadorCarretera++;
-                    biciAux.setNombreExistencies(contadorCarretera);
+                   // biciAux.setNombreExistencies(contadorCarretera);
                     break;
                 case 3:
                     biciAux.setModel(Bicicleta.Model.HIBRIDA);
                     contadorHibrida++;
-                    biciAux.setNombreExistencies(contadorHibrida);
+                  //  biciAux.setNombreExistencies(contadorHibrida);
                     break;
                 case 4:
                     biciAux.setModel((Bicicleta.Model.INFANTIL));
                     contadorInfantil++;
-                    biciAux.setNombreExistencies(contadorInfantil);
+                    //biciAux.setNombreExistencies(contadorInfantil);
                     break;
             }
             grandariaRodes = Lib.random(10,50);
