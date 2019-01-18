@@ -117,7 +117,6 @@ public class Metodes {
         biciAux.setPreu(Principal06.lec.nextInt());
         Principal06.lec.nextLine();
         Principal06.contenedorBici[puntero]=biciAux;
-        biciAux.toString();
         puntero++;
 
     }
