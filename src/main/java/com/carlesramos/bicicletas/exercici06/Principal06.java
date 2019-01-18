@@ -7,7 +7,7 @@ public class Principal06 {
     static  Bicicleta [] contenedorBici = new Bicicleta[100];
     public Principal06(){
         Metodes m = new Metodes();
-        String [] menu1 = {"Añadir bicicleta...","Vender bicicleta...","Consultar bicicleta...","Mostrar estoc..."};
+        String [] menu1 = {"Añadir bicicleta...","Vender bicicleta...","Consultar bicicleta...","Mostrar estock..."};
         String [] menu2 = {"Consultar por referencia","Consultar por marca","Consultar por modelo"};
         int eleccionMenu1;
         int eleccionMenu2;
