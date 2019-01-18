@@ -65,6 +65,7 @@ public class Principal06 {
                                 lec.nextLine();
                         }
                     }while (eleccionMenu2<0 || eleccionMenu2>menu2.length);
+                    break;
                 case 4:
                     m.mostrarStock();
                     System.out.print("Pulse intro para continuar: ");
