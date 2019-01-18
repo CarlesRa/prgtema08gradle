@@ -1,19 +1,19 @@
 package com.carlesramos.bicicletas.exercici06;
 import com.carlesramos.bicicletas.libreria.Lib;
-
+import java.util.Arrays;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 public class Metodes {
     static  int ref;
     static int puntero=0;
     static Bicicleta biciAux = new Bicicleta();
-
+    static int contadorMontaña=0;
+    static int contadorCarretera=0;
+    static int contadorHibrida=0;
+    static int contadorInfantil=0;
     public void crearBicicleta(){
         String [] menu={"Montaña","Carretera","Híbrida","Infantil"};
-        int contadorMontaña=0;
-        int contadorCarretera=0;
-        int contadorHibrida=0;
-        int contadorInfantil=0;
+
         boolean condicion=true;
         String siONo;
         String dataFabricacio;
@@ -212,8 +212,6 @@ public class Metodes {
                     break;
                 default:
                     System.out.println("\u001B[31mDato incorrecto.....\u001B[0m");
-                    System.out.print("Pulse intro para continuar....");
-                    Principal06.lec.nextLine();
             }
 
             if (contador == 0) {
@@ -225,8 +223,6 @@ public class Metodes {
     public void mostrarStock(){
         for(int i=0; i<puntero; i++){
             System.out.println(Principal06.contenedorBici[i].toString());
-            System.out.print("Pulse intro para continuar....");
-            Principal06.lec.nextLine();
         }
     }
 
@@ -239,30 +235,35 @@ public class Metodes {
         float grandariaRodes;
         int preu;
         String dataFabricacio;
-        String []noms={"Pepe","Juan","Maria","Paulina","Colet","Violet","Pam","Carlos"};
         String []marcas={"Ramirez","Rodenas","Guarde","Ramos","Moll","Pastor","Rossel"};
         String []dates={"15-08-1982","12-04-2000","25-06-2010","12-02-2004"};
 
-        for(int i=0; i<50; i++){
-            nom=noms[Lib.random(0, noms.length-1)];
+        for(int i=0; i<5; i++){
+            Bicicleta biciAux = new Bicicleta();
             marca=marcas[Lib.random(0, marcas.length-1)];
             dataFabricacio=dates[Lib.random(0,dates.length-1)];
             pes=Lib.random(20, 40);
             switch (selectorModel){
                 case 1:
                     biciAux.setModel(Bicicleta.Model.MONTAÑA);
+                    contadorMontaña++;
+
                     break;
                 case 2:
                     biciAux.setModel((Bicicleta.Model.CARRETERA));
+                    contadorCarretera++;
                     break;
                 case 3:
                     biciAux.setModel(Bicicleta.Model.HIBRIDA);
+                    contadorHibrida++;
                     break;
                 case 4:
                     biciAux.setModel((Bicicleta.Model.INFANTIL));
+                    contadorInfantil++;
                     break;
             }
             grandariaRodes = Lib.random(10,50);
+            selectorModel++;
             if(selectorModel==1 || selectorModel==3){
                 biciAux.setTeMotor(true);
             }
@@ -276,9 +277,11 @@ public class Metodes {
             biciAux.setGrandariaRodes(grandariaRodes);
             biciAux.setDataFabricacio(dataFabricacio);
             biciAux.setPreu(preu);
-            if(selectorModel==4){
+            Principal06.contenedorBici[i]=biciAux;
+            if(selectorModel==5){
                 selectorModel=1;
             }
+            puntero++;
         }
     }
 

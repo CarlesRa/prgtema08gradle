@@ -1,7 +1,6 @@
 package com.carlesramos.bicicletas.exercici06;
 import com.carlesramos.bicicletas.libreria.Lib;
 import java.util.Scanner;
-import java.util.Arrays;
 public class Principal06 {
     static int contadorBicicleta;//contenedor objectes
     static Scanner lec = new Scanner(System.in);
@@ -9,7 +8,7 @@ public class Principal06 {
     public Principal06(){
         Metodes m = new Metodes();
         String [] menu1 = {"Añadir bicicleta...","Vender bicicleta...","Consultar bicicleta...","Mostrar estoc..."};
-        String [] menu2 = {"Consultar por referencia","Consultar por marca","Consultar por modelo","Mostrar stock"};
+        String [] menu2 = {"Consultar por referencia","Consultar por marca","Consultar por modelo"};
         int eleccionMenu1;
         int eleccionMenu2;
         m.generarBicicletas();
@@ -60,17 +59,16 @@ public class Principal06 {
                                 System.out.print("Pulse intro para continuar: ");
                                 lec.nextLine();
                                 break;
-                            case 4:
-                                m.mostrarStock();
-                                System.out.print("Pulse intro para continuar: ");
-                                lec.nextLine();
                             default:
                                 System.out.println("\u001B[31mDato incorrecto.....\u001B[0m");
                                 System.out.print("Pulse intro para continuar....");
                                 lec.nextLine();
                         }
-                    }while (eleccionMenu2<0 || eleccionMenu2>3);
+                    }while (eleccionMenu2<0 || eleccionMenu2>menu2.length);
                 case 4:
+                    m.mostrarStock();
+                    System.out.print("Pulse intro para continuar: ");
+                    lec.nextLine();
 
             }
         }while(eleccionMenu1!=0);
