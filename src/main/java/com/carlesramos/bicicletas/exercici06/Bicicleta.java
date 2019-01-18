@@ -41,13 +41,13 @@ public class Bicicleta {
         return "Bicicleta{" +
                 "referencia=" + referencia +
                 ", marca='" + marca + '\'' +
-                ", model='" + model + '\'' +
-                ", pes=" + pes +
-                ", grandariaRodes=" + grandariaRodes +
-                ", teMotor=" + teMotor +
-                ", dataFabricació='" + dataFabricacio + '\'' +
-                ", preu=" + preu +
-                ", nombreExistencies=" + nombreExistencies +
+                ", modelo='" + model + '\'' +
+                ", peso=" + pes +
+                ", Tamaño Rueda=" + grandariaRodes +
+                ", Motor=" + teMotor +
+                ", fecha fabricació='" + dataFabricacio + '\'' +
+                ", Precio=" + preu +
+                ", Existencias=" + nombreExistencies +
                 '}';
     }
 

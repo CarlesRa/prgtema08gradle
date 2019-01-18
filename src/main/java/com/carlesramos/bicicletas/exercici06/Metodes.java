@@ -13,23 +13,24 @@ public class Metodes {
     static int contadorInfantil=0;
     public void crearBicicleta(){
         String [] menu={"Montaña","Carretera","Híbrida","Infantil"};
-
-        boolean condicion=true;
         String siONo;
         String dataFabricacio;
         int eleccionModelo;
+        boolean condicion;
         do{
+            condicion=false;
             System.out.print("Introduzca la referencia: ");
             ref=Principal06.lec.nextInt();
             Principal06.lec.nextLine();
-            for(int i=0; i<Principal06.contadorBicicleta; i++){
+            for(int i=0; i<puntero; i++){
                 if (ref==Principal06.contenedorBici[i].getReferencia()){
                     System.out.println("\u001B[31mDato incorrecto.....\u001B[0m");
                     System.out.print("Pulse intro para continuar....");
                     Principal06.lec.nextLine();
+                    condicion=true;
                 }
             }
-        }while(ref==biciAux.getReferencia());
+        }while(condicion);
         biciAux.setReferencia(ref);
         System.out.print("Introduzca la marca: ");
         biciAux.setMarca(Principal06.lec.nextLine());
@@ -185,7 +186,7 @@ public class Metodes {
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.MONTAÑA) {
                             System.out.println(Principal06.contenedorBici[i].toString());
-
+                            contador++;
                         }
 
                     break;
@@ -193,21 +194,21 @@ public class Metodes {
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.CARRETERA) {
                             System.out.println(Principal06.contenedorBici[i].toString());
-
+                            contador++;
                         }
                     break;
                 case 3:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.HIBRIDA) {
                             System.out.println(Principal06.contenedorBici[i].toString());
-
+                            contador++;
                         }
                     break;
                 case 4:
                     for (int i = 0; i < puntero; i++)
                         if (Principal06.contenedorBici[i].getModel() == Bicicleta.Model.INFANTIL) {
                             System.out.println(Principal06.contenedorBici[i].toString());
-
+                            contador++;
                         }
                     break;
                 default:
@@ -238,7 +239,7 @@ public class Metodes {
         String []marcas={"Ramirez","Rodenas","Guarde","Ramos","Moll","Pastor","Rossel"};
         String []dates={"15-08-1982","12-04-2000","25-06-2010","12-02-2004"};
 
-        for(int i=0; i<5; i++){
+        for(int i=0; i<20; i++){
             Bicicleta biciAux = new Bicicleta();
             marca=marcas[Lib.random(0, marcas.length-1)];
             dataFabricacio=dates[Lib.random(0,dates.length-1)];
@@ -247,19 +248,23 @@ public class Metodes {
                 case 1:
                     biciAux.setModel(Bicicleta.Model.MONTAÑA);
                     contadorMontaña++;
+                    biciAux.setNombreExistencies(contadorMontaña);
 
                     break;
                 case 2:
                     biciAux.setModel((Bicicleta.Model.CARRETERA));
                     contadorCarretera++;
+                    biciAux.setNombreExistencies(contadorCarretera);
                     break;
                 case 3:
                     biciAux.setModel(Bicicleta.Model.HIBRIDA);
                     contadorHibrida++;
+                    biciAux.setNombreExistencies(contadorHibrida);
                     break;
                 case 4:
                     biciAux.setModel((Bicicleta.Model.INFANTIL));
                     contadorInfantil++;
+                    biciAux.setNombreExistencies(contadorInfantil);
                     break;
             }
             grandariaRodes = Lib.random(10,50);
@@ -271,7 +276,7 @@ public class Metodes {
                 biciAux.setTeMotor(false);
             }
             preu = Lib.random(100,900);
-            biciAux.setReferencia(i);
+            biciAux.setReferencia(i+1);
             biciAux.setMarca(marca);
             biciAux.setPes(pes);
             biciAux.setGrandariaRodes(grandariaRodes);
