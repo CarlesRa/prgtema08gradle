@@ -9,6 +9,7 @@ public class Lib{
      * @param opcionSalida String opcion de salida
      */
     public static void mosrtrarMenu(String cabeceraMenu, String [] s, String opcionSalida){
+        System.out.println("\u001B[H\u001B[2J");
         for(int i=0; i<cabeceraMenu.length(); i++){
             System.out.print("*");
         }
