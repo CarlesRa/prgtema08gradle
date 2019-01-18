@@ -1,25 +1,25 @@
 package com.carlesramos.bicicletas.exercici06;
-
 public class Bicicleta {
+    public enum Model{MONTAÑA,CARRETERA,HIBRIDA,INFANTIL}
     private int referencia;
     private String marca;
-    private String model;
+    private Model model;
     private float pes;
     private float grandariaRodes;
     private boolean teMotor;
-    private String dataFabricació;
+    private String dataFabricacio;
     private float preu;
-    private int nombreExistencies;
+    protected int nombreExistencies;
 
-    public Bicicleta(int referencia, String marca, String model, float pes, float grandariaRodes
-            , boolean teMotor, String dataFabricació, float preu, int nombreExistencies) {
+    public Bicicleta(int referencia, String marca,  Model model, float pes, float grandariaRodes
+            , boolean teMotor, String dataFabricacio, float preu, int nombreExistencies) {
         this.referencia = referencia;
         this.marca = marca;
         this.model = model;
         this.pes = pes;
         this.grandariaRodes = grandariaRodes;
         this.teMotor = teMotor;
-        this.dataFabricació = dataFabricació;
+        this.dataFabricacio = dataFabricacio;
         this.preu = preu;
         this.nombreExistencies = nombreExistencies;
     }
@@ -27,11 +27,11 @@ public class Bicicleta {
     public Bicicleta() {
         referencia = 0;
         marca = "";
-        model = "";
+        model=Model.MONTAÑA;
         pes = 0f;
         grandariaRodes = 0f;
         teMotor = false;
-        dataFabricació ="";
+        dataFabricacio ="";
         preu = 0f;
         nombreExistencies = 0;
     }
@@ -45,7 +45,7 @@ public class Bicicleta {
                 ", pes=" + pes +
                 ", grandariaRodes=" + grandariaRodes +
                 ", teMotor=" + teMotor +
-                ", dataFabricació='" + dataFabricació + '\'' +
+                ", dataFabricació='" + dataFabricacio + '\'' +
                 ", preu=" + preu +
                 ", nombreExistencies=" + nombreExistencies +
                 '}';
@@ -67,11 +67,12 @@ public class Bicicleta {
         this.marca = marca;
     }
 
-    public String getModel() {
+    public Model getModel() {
+        Model model = this.model;
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(Model model) {
         this.model = model;
     }
 
@@ -99,12 +100,12 @@ public class Bicicleta {
         this.teMotor = teMotor;
     }
 
-    public String getDataFabricació() {
-        return dataFabricació;
+    public String getDataFabricacio() {
+        return dataFabricacio;
     }
 
-    public void setDataFabricació(String dataFabricació) {
-        this.dataFabricació = dataFabricació;
+    public void setDataFabricacio(String dataFabricacio) {
+        this.dataFabricacio = dataFabricacio;
     }
 
     public float getPreu() {
